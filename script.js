@@ -3,12 +3,12 @@
 let highScore = 0;
 let scoreValue = 20;
 
-
+let secretNumber;
 function generateSecretNumber() {
-    return Math.ceil(Math.random() * 20) + 1;
+    secretNumber = Math.ceil(Math.random() * 20) + 1;
 }
-let secretNumber = generateSecretNumber();
-console.log(secretNumber);
+
+generateSecretNumber();
 
 // to display message
 function displayMessage(message1) {
@@ -29,7 +29,6 @@ function setHighScore(highscore, scoreValue) {
         document.querySelector(".highscore").textContent = highScore;
     }
 }
-
 
 document.querySelector(".check").addEventListener("click", function() {
     let guessNumber = Number(document.querySelector(".guess").value);
@@ -62,6 +61,7 @@ document.querySelector(".check").addEventListener("click", function() {
 
 document.querySelector(".again").addEventListener("click", function() {
     generateSecretNumber();
+    // secretNumber = Math.ceil(Math.random() * 20) + 1;
     scoreValue = 20;
     displayScore(scoreValue);
     displayMessage("Enter a number");
